@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:nascon_app/ui/screens/auth/splash_screen.dart';
 
 import '../../../blocs/auth/auth_bloc.dart';
 import '../../../blocs/user/user_cubit.dart';
@@ -66,6 +67,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
           case UserCreated: // TODO progression
             setState(() => lock = false);
             navigator(context).popUntil((route) => route.isFirst);
+            materialPushReplacement(context, const SplashScreen());
             break;
           default:
             setState(() => lock = false);
