@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "594349296905",
+    "project_id": "nascon-2k24",
+    "storage_bucket": "nascon-2k24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594349296905:android:f72b054ebf25d59acd17d8",
+        "android_client_info": {
+          "package_name": "com.example.nascon_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAanLNR9rRis7HGUwnUB1oIt-Ciwzd6uPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
