@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.example.nascon_app",
       "sha256_cert_fingerprints": [
-        "B6:05:97:50:B3:5F:B3:63:AF:02:D1:F8:48:F0:10:C2:CF:49:E5:38:1E:A9:7B:30:8D:95:10:29:3A:4F:0E:FE"
+        "B6:05:97:50:B3:5F:B3:63:AF:02:D1:F8:48:F0:10:C2:CF:49:E5:38:1E:A9:7B:30:8D:95:10:29:3A:4F:0E:FE",
+        "A0:79:61:D1:F1:21:CB:F0:B9:9B:59:C2:E2:07:B3:50:D8:A6:5E:7A:4F:87:CC:6D:37:FF:06:8D:84:15:36:37"
       ]
     }
   }
