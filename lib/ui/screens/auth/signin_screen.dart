@@ -38,6 +38,10 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     bool isLandscape =
         MediaQuery.orientationOf(context) == Orientation.landscape;
+
+    ///
+    /// Auth Bloc Listener
+    ///
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         switch (state.runtimeType) {
@@ -56,6 +60,7 @@ class _SigninScreenState extends State<SigninScreen> {
             );
             break;
           case EmailAuthState:
+            setState(() => lock = false);
 
             ///  TODO user specific state related initializations and Progression
 
@@ -180,6 +185,9 @@ class _SigninScreenState extends State<SigninScreen> {
                   ),
                 ),
 
+                /// Spacing
+                SizedBox(height: 132.h),
+
                 /// SignUp Button
                 ElevatedButton(
                   onPressed: () => authBloc.add(LoginWithEmailPass(
@@ -189,48 +197,8 @@ class _SigninScreenState extends State<SigninScreen> {
                   child: const Text("Sign in"),
                 ),
 
-                /// Other Options for SignUp (Google, Facebook)
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 148.h),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "or continue with",
-                        style: TextStyle(fontSize: 16.spMax),
-                      ),
-
-                      /// spacing
-                      const SizedBox(width: 20),
-
-                      /// Google
-                      InkWell(
-                        borderRadius: BorderRadius.circular(1.sw),
-                        onTap: () => {},
-                        child: SvgPicture.asset(
-                          "assets/logos/google.svg",
-                          height: isLandscape ? 64.w : 128.h,
-                          width: isLandscape ? 64.w : 128.h,
-                        ),
-                      ),
-
-                      /// Facebook
-                      InkWell(
-                        borderRadius: BorderRadius.circular(1.sw),
-                        onTap: () => {},
-                        child: SvgPicture.asset(
-                          "assets/logos/facebook.svg",
-                          height: isLandscape ? 64.w : 128.h,
-                          width: isLandscape ? 64.w : 128.h,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
                 /// Spacing
-                SizedBox(height: 48.h),
+                SizedBox(height: 296.h),
 
                 /// If have an account already, sign in
                 Row(

@@ -182,7 +182,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ActionCodeSettings actionCodeSettings = ActionCodeSettings(
         // domain from firebase hosting, use app-links for android and
         // uni_links for getting the data from the deeplink
-        url: "https://task-maker-splenify.web.app/reset-password",
+        url: "https://nascon-2k24.web.app/reset-password",
         androidInstallApp: false,
         handleCodeInApp: true,
       );

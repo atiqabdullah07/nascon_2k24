@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/utils.dart';
 import 'signin_screen.dart';
 import 'signup_screen.dart';
 
@@ -17,8 +18,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isLandscape =
-        MediaQuery.orientationOf(context) == Orientation.landscape;
+    bool isLandscape = isOrientationLandscape(context);
 
     return Scaffold(
       /// Scroll View to keep layout sane while in landscape
