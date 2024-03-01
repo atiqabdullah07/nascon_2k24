@@ -109,16 +109,17 @@ class App extends StatelessWidget {
             elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
                 elevation: const MaterialStatePropertyAll(0),
-                foregroundColor: const MaterialStatePropertyAll(kColorBlack),
+                foregroundColor:
+                    const MaterialStatePropertyAll(kColorSecondary),
                 backgroundColor:
                     MaterialStateProperty.resolveWith<Color>((states) {
                   return states.contains(MaterialState.disabled)
                       ? kColorGrey
-                      : kColorPrimary;
+                      : kColorSupportiveBlue;
                 }),
                 shape: MaterialStatePropertyAll(
                   RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r)),
+                      borderRadius: BorderRadius.circular(100.r)),
                 ),
                 minimumSize:
                     MaterialStatePropertyAll(Size.fromHeight(max(164.h, 64.w))),

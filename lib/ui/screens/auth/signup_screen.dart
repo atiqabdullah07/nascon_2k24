@@ -20,6 +20,7 @@ class _SignupScreenState extends State<SignupScreen> {
   /// Local State
   bool isProcessing = false;
   bool showPass = false;
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
@@ -102,6 +103,22 @@ class _SignupScreenState extends State<SignupScreen> {
                   child: Form(
                     child: Column(
                       children: [
+                        /// Username Field
+                        TextFormField(
+                          controller: nameController,
+                          keyboardType: TextInputType.name,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          validator: null,
+                          style: TextStyle(fontSize: 13.spMax),
+                          decoration: const InputDecoration(
+                            prefixIcon: Icon(Icons.person),
+                            hintText: "Username",
+                          ),
+                        ),
+
+                        /// spacing
+                        46.verticalSpace,
+
                         /// Email Field
                         TextFormField(
                           controller: emailController,
@@ -152,46 +169,6 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                   child: const Text("Sign up"),
-                ),
-
-                /// Other Options for SignUp (Google, Facebook)
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 148.h),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "or continue with",
-                        style: TextStyle(fontSize: 16.spMax),
-                      ),
-
-                      /// spacing
-                      const SizedBox(width: 20),
-
-                      /// Google
-                      InkWell(
-                        borderRadius: BorderRadius.circular(1.sw),
-                        onTap: () => {},
-                        child: SvgPicture.asset(
-                          "assets/logos/google.svg",
-                          height: isLandscape ? 64.w : 128.h,
-                          width: isLandscape ? 64.w : 128.h,
-                        ),
-                      ),
-
-                      /// Facebook
-                      InkWell(
-                        borderRadius: BorderRadius.circular(1.sw),
-                        onTap: () => {},
-                        child: SvgPicture.asset(
-                          "assets/logos/facebook.svg",
-                          height: isLandscape ? 64.w : 128.h,
-                          width: isLandscape ? 64.w : 128.h,
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
 
                 /// Spacing

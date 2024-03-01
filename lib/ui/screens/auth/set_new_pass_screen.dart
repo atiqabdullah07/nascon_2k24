@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nascon_app/core/utils.dart';
 
 import '../../../core/constants.dart';
 
@@ -14,6 +15,11 @@ class SetNewPassScreen extends StatefulWidget {
 }
 
 class _SetNewPassScreenState extends State<SetNewPassScreen> {
+  /// local state
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     bool isLandscape =
@@ -51,14 +57,10 @@ class _SetNewPassScreenState extends State<SetNewPassScreen> {
                 children: [
                   /// Email Field
                   TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
+                    controller: passwordController,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
                       hintText: "Password",
-                      suffixIcon: IconButton(
-                        onPressed: () => {},
-                        icon: const Icon(Icons.visibility_outlined),
-                      ),
                     ),
                   ),
 
@@ -67,14 +69,10 @@ class _SetNewPassScreenState extends State<SetNewPassScreen> {
 
                   /// Password Field
                   TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock_reset_rounded),
+                    controller: confirmPasswordController,
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.lock_reset_rounded),
                       hintText: "Confirm Password",
-                      suffixIcon: IconButton(
-                        onPressed: () => {},
-                        icon: const Icon(Icons.visibility_outlined),
-                      ),
                     ),
                   ),
                 ],
@@ -83,7 +81,23 @@ class _SetNewPassScreenState extends State<SetNewPassScreen> {
 
             /// SignUp Button
             ElevatedButton(
-              onPressed: () => {},
+              onPressed: () {
+                /// check if both fields are filled
+                if (passwordController.text.trim().isEmpty ||
+                    confirmPasswordController.text.trim().isEmpty) {
+                  clearSnackBars(context);
+                  showSnackBarText(
+                      context, "Please fill both fields to continue.");
+
+                  /// check if both passwords are same
+                } else if (passwordController.text.trim() !=
+                    confirmPasswordController.text.trim()) {
+                  clearSnackBars(context);
+                  showSnackBarText(context, "Passwords don't match.");
+
+                  /// continue
+                } else {}
+              },
               child: const Text("Save Password"),
             ),
 

@@ -22,10 +22,10 @@ class LockableScaffold extends StatelessWidget {
       canPop: !lock, // if not locked, only then can be popped
       child: Stack(
         children: [
-          /// user scaffold
+          /// user widget
           widget,
 
-          /// ModalBarrier to overlay the whole scaffold
+          /// ModalBarrier to overlay the whole widget
           if (lock) ...[
             ModalBarrier(
               color: Colors.black.withOpacity(0.5),
